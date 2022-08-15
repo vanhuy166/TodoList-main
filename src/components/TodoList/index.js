@@ -62,14 +62,14 @@ function TodoList() {
   return (
     <Row style={{ height: "calc(100% - 40px)" }}>
       <Col span={24} style={{ height: "calc(100% - 40px)", overflowY: "auto" }}>
-        {todoList.map((todo) => {
+        {todoList.map((todo, index) => {
           return (
             <Todo
               key={todo.id}
-              id={todo.id}
               name={todo.name}
               priority={todo.priority}
               completed={todo.completed}
+              itemIndex={index}
             />
           );
         })}

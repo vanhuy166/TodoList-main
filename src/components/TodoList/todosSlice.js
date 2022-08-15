@@ -55,21 +55,11 @@ const todosSlice = createSlice({
       storage.set(state);
     },
     toggleTodoStatus: (state, action) => {
-      state.forEach((todo) => {
-        if (todo.id === action.payload) {
-          todo.completed = !todo.completed;
-        }
-      });
+      state[action.payload].completed = !state[action.payload].completed;
       storage.set(state);
     },
     removeTodo: (state, action) => {
-      var currentIndex;
-      state.forEach((todo, index) => {
-        if (todo.id === action.payload) {
-          currentIndex = index;
-        }
-      });
-      state.splice(currentIndex, 1);
+      state.splice(action.payload, 1);
       storage.set(state);
     },
   },

@@ -15,7 +15,7 @@ const priorityColorMapping = {
   Low: "gray",
 };
 
-export default function Todo({ id, name, priority, completed }) {
+export default function Todo({ name, priority, completed, itemIndex }) {
   const dispatch = useDispatch();
 
   const [checked, setChecked] = useState(completed);
@@ -30,11 +30,11 @@ export default function Todo({ id, name, priority, completed }) {
   //////////////////Redux Toolkit//////////////////
   const toggleCheckbox = () => {
     setChecked(!checked);
-    dispatch(todosSlice.actions.toggleTodoStatus(id));
+    dispatch(todosSlice.actions.toggleTodoStatus(itemIndex));
   };
 
   const handleRemoveTodoClick = () => {
-    dispatch(todosSlice.actions.removeTodo(id));
+    dispatch(todosSlice.actions.removeTodo(itemIndex));
   };
   /////////////////////////////////////////////////
 
